@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <sstream>
 const uint64_t mINT64_MAX = 0x7FFFFFFFFFFFFFFF;
@@ -258,12 +259,13 @@ namespace DynamicBitset
         }
 
         // @Constructor
-        DynamicBitset::b64(uint64_t MaskSize = i64)
+        DynamicBitset::b64(uint64_t MaskSize = i64, uint64_t InitialValue = 0)
         {
             delete[] Storage;
             uint64_t FinalSize = (MaskSize >> 6) + ((MaskSize & 63) > 0);
             Size = FinalSize;
             Storage = new uint64_t[FinalSize];
+            Storage[0] = InitialValue;
         }
 
     };
@@ -520,12 +522,13 @@ namespace DynamicBitset
         }
 
         // @Constructor
-        DynamicBitset::b32(uint32_t MaskSize = i32)
+        DynamicBitset::b32(uint32_t MaskSize = i32, uint32_t InitialValue = 0)
         {
             delete[] Storage;
             uint32_t FinalSize = (MaskSize >> 5) + ((MaskSize & 31) > 0);
             Size = FinalSize;
             Storage = new uint32_t[FinalSize];
+            Storage[0] = InitialValue;
         }
 
     };
