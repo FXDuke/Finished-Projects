@@ -206,19 +206,19 @@ namespace DynamicBitset
 
             uint64_t FinalSize = (MaskSize >> 6) + ((MaskSize & 63) > 0);
             Size = FinalSize;
-            Storage = new uint64_t[FinalSize];
+            Storage = new uint64_t[FinalSize]{ 0 };
         }
 
         void clear()
         {
             delete[] Storage;
-            Storage = new uint64_t[Size];
+            Storage = new uint64_t[Size]{ 0 };
         }
 
         void free()
         {
             delete[] Storage;
-            Storage = new uint64_t[1];
+            Storage = new uint64_t[1]{ 0 };
             Size = 1;
         }
 
@@ -264,7 +264,7 @@ namespace DynamicBitset
             delete[] Storage;
             uint64_t FinalSize = (MaskSize >> 6) + ((MaskSize & 63) > 0);
             Size = FinalSize;
-            Storage = new uint64_t[FinalSize];
+            Storage = new uint64_t[FinalSize]{ 0 };
             Storage[0] = InitialValue;
         }
 
@@ -469,19 +469,19 @@ namespace DynamicBitset
 
             uint32_t FinalSize = (MaskSize >> 5) + ((MaskSize & 31) > 0);
             Size = FinalSize;
-            Storage = new uint32_t[FinalSize];
+            Storage = new uint32_t[FinalSize]{ 0 };
         }
 
         void clear()
         {
             delete[] Storage;
-            Storage = new uint32_t[Size];
+            Storage = new uint32_t[Size]{ 0 };
         }
 
         void free()
         {
             delete[] Storage;
-            Storage = new uint32_t[1];
+            Storage = new uint32_t[1]{ 0 };
             Size = 1;
         }
 
@@ -527,7 +527,7 @@ namespace DynamicBitset
             delete[] Storage;
             uint32_t FinalSize = (MaskSize >> 5) + ((MaskSize & 31) > 0);
             Size = FinalSize;
-            Storage = new uint32_t[FinalSize];
+            Storage = new uint32_t[FinalSize]{ 0 };
             Storage[0] = InitialValue;
         }
 
